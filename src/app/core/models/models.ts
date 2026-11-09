@@ -161,3 +161,22 @@ export interface DashboardResumen {
   deudas_pendientes_total: number
   inventario_bajo_stock: number
 }
+
+export interface ReparacionServicio {
+  id: string
+  reparacion_id: string
+  descripcion: string
+  cantidad: number
+  precio_unitario: number
+  subtotal: number
+  created_at: string
+}
+
+export interface ReparacionRepuesto extends ReparacionServicio {
+  inventario_id: string | null
+}
+
+export interface MecanicoOpt {
+  id: string
+  nombre: string
+}
