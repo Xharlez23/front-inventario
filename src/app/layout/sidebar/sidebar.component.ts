@@ -9,6 +9,7 @@ interface NavItem {
   to: string
   icon: string
   label: string
+  soloAdmin?: boolean
 }
 
 const NAV: NavItem[] = [
@@ -22,6 +23,7 @@ const NAV: NavItem[] = [
   { to: '/citas', icon: 'calendar_month', label: 'Agenda' },
   { to: '/proveedores', icon: 'storefront', label: 'Proveedores' },
   { to: '/reportes', icon: 'bar_chart', label: 'Reportes' },
+  { to: '/usuarios', icon: 'admin_panel_settings', label: 'Usuarios', soloAdmin: true },
 ]
 
 @Component({
@@ -40,7 +42,7 @@ const NAV: NavItem[] = [
 
       <nav class="nav">
         <a
-          *ngFor="let item of nav"
+          *ngFor="let item of items"
           [routerLink]="item.to"
           routerLinkActive="activo"
           class="nav-item"
@@ -183,9 +185,11 @@ const NAV: NavItem[] = [
 })
 export class SidebarComponent {
   @Output() cerrar = new EventEmitter<void>()
-  nav = NAV
+  get items() {
+    return NAV.filter((i) => !i.soloAdmin || this.auth.esAdmin)
+  }
 
-  constructor(public auth: AuthService, private router: Router) {}
+  constructor(public auth: AuthService, private router: Router) { }
 
   inicial(): string {
     return this.auth.perfilActual?.nombre?.charAt(0)?.toUpperCase() ?? '?'

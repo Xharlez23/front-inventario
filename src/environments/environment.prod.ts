@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   // TODO: reemplaza esto por la URL real de tu backend cuando lo despliegues (con https)
-  apiUrl: 'https://tu-api-en-produccion.com/api',
+  apiUrl: 'https://backend-eight-eta-46.vercel.app/api',
   firebase: {
     apiKey: 'AIzaSyD-MFEr-sQlvX4cKg1Bm30vaCb2NjSnxxU',
     authDomain: 'inventarios-polus.firebaseapp.com',

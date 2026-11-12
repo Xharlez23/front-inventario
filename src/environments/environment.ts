@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:4000/api',
+  apiUrl: 'https://backend-eight-eta-46.vercel.app/api',
   firebase: {
     apiKey: 'AIzaSyD-MFEr-sQlvX4cKg1Bm30vaCb2NjSnxxU',
     authDomain: 'inventarios-polus.firebaseapp.com',
@@ -11,3 +11,4 @@ export const environment = {
     measurementId: 'G-42KCF9RQ8E',
   },
 }
+
